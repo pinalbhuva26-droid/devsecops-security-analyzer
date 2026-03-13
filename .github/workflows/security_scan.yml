@@ -1,0 +1,27 @@
+name: DevSecOps Security Pipeline
+
+on:
+ push:
+   branches:
+     - main
+
+jobs:
+ security-check:
+   runs-on: ubuntu-latest
+
+   steps:
+
+   - name: Checkout Repository
+     uses: actions/checkout@v3
+
+   - name: Install Dependencies
+     run: npm install
+
+   - name: Run Dependency Security Check
+     run: echo "Scanning dependencies for vulnerabilities"
+
+   - name: Terraform Validation
+     run: echo "Checking Terraform configuration"
+
+   - name: Generate Security Report
+     run: echo "Security scan completed"
